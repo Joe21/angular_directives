@@ -1,15 +1,16 @@
 var myApp = angular.module('myApp', [
 	'ngRoute',
-	'directivesControllers'
+	'ngResource',
+	'myControllers'
 ]);
 
-myApp.config(['$routeProvider', function($routeProvider) {
+myApp.config(['$routeProvider', function($routeProvider){
 	$routeProvider.
 	when('/form', {
-		templateUrl: 'partials/form.html',
-		controller: 'FormController'
+		templateUrl: 'js/angular/partials/form.html',
+		controller: 'MyController'
 	}).
 	otherwise({
-		redirectTo: '/form'
-	});
+    redirectTo: '/form'
+  });
 }]);
