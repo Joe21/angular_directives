@@ -6,3 +6,23 @@ myControllers.controller('MyController', ['$scope', '$http', function($scope, $h
 		alert(data);
 	});
 }]);
+
+myControllers.controller('FileController', ['$scope', '$upload', function($scope, $upload) {
+	$scope.onFileSelect = function($files) {
+		// $files: an array of files selected, each has name, size, type
+		for (var i = 0; i < $files.length; i++) {
+			var file = $files[i];
+			$scope.upload = $upload.upload({
+				url: '/upload',
+				method: 'POST',
+				data: {myObj: $scope.myModelObj},
+				file: file
+				// Stuff I need to review
+			}).progress(function(evt) {
+				console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+			}).success(function(data, status, headers, config) {
+				console.log(data);
+			});
+		}
+	};
+}]);

@@ -1,7 +1,8 @@
 var myApp = angular.module('myApp', [
 	'ngRoute',
 	'ngResource',
-	'myControllers'
+	'myControllers',
+	'angularFileUpload'
 ]);
 
 myApp.config(['$routeProvider', function($routeProvider){
@@ -9,6 +10,10 @@ myApp.config(['$routeProvider', function($routeProvider){
 	when('/form', {
 		templateUrl: 'js/angular/partials/form.html',
 		controller: 'MyController'
+	}).
+	when('/upload', {
+		templateUrl: 'js/angular/partials/upload.html',
+		controller: 'FileController'
 	}).
 	otherwise({
     redirectTo: '/form'
