@@ -13,7 +13,7 @@ myControllers.controller('FileController', ['$scope', '$upload', function($scope
 		for (var i = 0; i < $files.length; i++) {
 			var file = $files[i];
 			$scope.upload = $upload.upload({
-				url: '/upload',
+				url: 'index.html#/upload',
 				method: 'POST',
 				data: {myObj: $scope.myModelObj},
 				file: file
